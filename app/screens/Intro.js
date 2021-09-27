@@ -13,12 +13,15 @@ import colors from '../misc/colors';
 
 const Intro = ({ onFinish }) => {
   const [name, setName] = useState('');
+  
   const handleOnChangeText = text => setName(text);
 
+  
+//Setting User name into async storage
   const handleSubmit = async () => {
     const user = { name: name };
     await AsyncStorage.setItem('user', JSON.stringify(user));
-    if (onFinish) onFinish();
+    if (onFinish) onFinish();  
   };
 
   return (

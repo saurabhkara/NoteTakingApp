@@ -15,6 +15,8 @@ const Stack = createStackNavigator();
 export default function App() {
   const [user, setUser] = useState({});
   const [isAppFirstTimeOpen, setIsAppFirstTimeOpen] = useState(false);
+
+  //Getting UserName 
   const findUser = async () => {
     const result = await AsyncStorage.getItem('user');
 
@@ -24,6 +26,7 @@ export default function App() {
     setIsAppFirstTimeOpen(false);
   };
 
+  //UseEffect Will RUN only first time because of second parameter
   useEffect(() => {
     findUser();
   }, []);
